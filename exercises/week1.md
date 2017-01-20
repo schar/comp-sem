@@ -194,11 +194,12 @@ spooky n = n * (spooky (n - 1))
 
 ### Data constructors and ADTs
 
-Towards the end of [our first lecture](), we talked about **data
-constructors**, which can be used to define something called an **abstract data
-type** (ADT). Basically, this amounts to a way of tagging one or more values as
-values *of a certain kind*, without committing to a specific way of
-interpreting those values (that comes later).
+Towards the end of [our first
+lecture](https://www.dropbox.com/s/zlnffvcorru16ay/s17-01-18.pdf?dl=0), we
+talked about **data constructors**, which can be used to define something
+called an **abstract data type** (ADT). Basically, this amounts to a way of
+tagging one or more values as values *of a certain kind*, without committing to
+a specific way of interpreting those values (that comes later).
 
 Probably, this is easiest to appreciate by example. Let's see how we can define
 our arithmetic language as an abstract data type:
