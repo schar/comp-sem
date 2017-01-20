@@ -6,6 +6,10 @@ programs. The exercises get progressively more difficult, culminating in some
 gnarly higher-order functions for operations on (one way to encode) ordered
 pairs.
 
+Some of the issues and techniques touch on things discussed on Wednesday Jan
+18. Those slides can be accessed
+    [here](https://www.dropbox.com/s/zlnffvcorru16ay/s17-01-18.pdf?dl=0).
+
 Do not hesitate to get in touch with questions or feedback. Happy hunting!
 
 ## Getting Haskell up and running
