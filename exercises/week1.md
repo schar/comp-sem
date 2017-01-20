@@ -24,13 +24,13 @@ Do not hesitate to get in touch with questions or feedback. Happy hunting!
     Terminal window (accessible via Spotlight search), paste the following, and
     then press `Enter`:
 
-    ````
+    ```bash
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ````
 
     Once that's done (shouldn't take long), paste the following:
 
-    ````
+    ```bash
     brew update; brew cask install haskell-platform
     ````
 
@@ -42,7 +42,7 @@ Do not hesitate to get in touch with questions or feedback. Happy hunting!
     eventually I will stop mentioning this step). This will get the Haskell
     interpreter fired up, and you should see something like the following:
 
-    ````
+    ```bash
     GHCi, version 8.0.2: http://www.haskell.org/ghc/  :? for help
     Prelude>
     ````
@@ -73,7 +73,7 @@ Do not hesitate to get in touch with questions or feedback. Happy hunting!
     file in `~/haskell` (`.hs` is the extension for Haskell files). I could
     open it with `ghci` like so:
 
-    ````
+    ```bash
     ghci ~/haskell/simon.hs
     ````
 
@@ -113,7 +113,7 @@ above). I'll probably do this somewhat differently in coming weeks.
 Notice that `ghci` should successfully run `week1.hs`, but the output will be
 pretty boring. Here's what it looks like on my system:
 
-````
+```bash
 Simons-MBP:srcs simoncharlow$ ghci week1.hs
 GHCi, version 8.0.2: http://www.haskell.org/ghc/  :? for help
 [1 of 1] Compiling Main             ( week1.hs, interpreted )
@@ -134,7 +134,7 @@ Just like in the simply typed λ-calculus, every well-formed Haskell expression
 has a type. In fact, it's customary to **declare** the type of an expression
 when you define it. That looks like this:
 
-````
+```haskell
 myNumber :: Int   -- Int is the type of an integer
 myNumber = 2      -- Anything after a '--' is ignored by the compiler!
 
@@ -147,7 +147,7 @@ What does `myBool` evaluate to?
 Guess what. The type-checker is picky (but that is very much its job)! What do
 you think happens if you try to run the following?
 
-````
+```haskell
 myMistake :: Int
 myMistake = not True
 ````
@@ -158,7 +158,7 @@ Haskell uses a syntax for defining functions that's really close to the
 λ-calculus. For example, if I wanted to define a function that doubles an
 integer and then adds 3, it would look like this:
 
-````
+```haskell
 aFunction :: Int -> Int
 aFunction = \x -> x*2 + 3
 ````
@@ -166,7 +166,7 @@ aFunction = \x -> x*2 + 3
 This is equivalent to a **combinator**-style definition, i.e., one without an
 explicit abstraction:
 
-````
+```haskell
 anotherFunction :: Int -> Int
 anotherFunction x = x*2 + 3
 ````
@@ -176,7 +176,7 @@ The latter style is more idiomatic for most cases.
 Functions can also be defined **by cases**. What do you suppose the following
 function does? Do you know it by any other names?
 
-````
+```haskell
 mystery :: Bool -> Bool
 mystery True = False
 mystery _    = True     -- this means "whatever you feed me, I'll return True"
@@ -186,7 +186,7 @@ And functions can be defined **recursively**, as well (i.e., where the
 right-hand side of a function definition refers to the function being defined).
 Do you recognize the following function? What does it do? What is `spooky 5`?
 
-````
+```haskell
 spooky :: Int -> Int
 spooky 1 = 1
 spooky n = n * (spooky (n - 1))
@@ -204,7 +204,7 @@ a specific way of interpreting those values (that comes later).
 Probably, this is easiest to appreciate by example. Let's see how we can define
 our arithmetic language as an abstract data type:
 
-````
+```haskell
 data Exp = Num Int | Add Exp Exp | Mult Exp Exp | Div Exp Exp
   deriving Show   -- this last line is some boilerplate
                   -- which allows Exp's to be displayed by ghci
@@ -216,7 +216,7 @@ values', in the parlance)! For example, if you ask `ghci` what the type of
 entering things directly in the `ghci` prompt; the following line is how `ghci`
 replies):
 
-````
+```bash
 > :t Add
 Add :: Exp -> Exp -> Exp
 ````
@@ -226,7 +226,7 @@ type-checker has instantly turned into a well-formedness checker for our little
 arithmetic language (it *recognizes* all and only the well-formed `Exp`'s). For
 example, in `ghci`, you can observe the following behavior:
 
-````
+```bash
 > Mult (Mult (Add (Num 1) (Num 2)) (Num 10)) (Num 5)
 Mult (Mult (Add (Num 1) (Num 2)) (Num 10)) (Num 5)
 ````
@@ -236,7 +236,7 @@ term was immediately recognized as an `Exp`.
 
 ...Alongside the following behavior:
 
-````
+```bash
 > Add (Num 1) (Num 1) (Num 1)
 
 <interactive>:7:1: error:
@@ -260,7 +260,7 @@ Abstract data types are, well, *abstract*. How can we make them concrete? By
 writing an **interpreter** for them. For example, combining the above pieces,
 an interpreter for `Exp` looks like so:
 
-````
+```haskell
 eval :: Exp -> Int
 eval (Num x)    = x
 eval (Add u v)  = (eval u) + (eval v)
@@ -284,7 +284,7 @@ As it happens, Haskell natively supports ordered pairs. The type it assigns
 them is mnemonically written the same as the actual syntax you use to define an
 ordered pair (a very common idiom in Haskell). So, for example:
 
-````
+```haskell
 myPair :: (Int, Bool)
 myPair = (5, False)
 ````
@@ -292,7 +292,7 @@ myPair = (5, False)
 We can write a function that takes two values and builds an ordered pair out
 of them. It looks like this:
 
-````
+```haskell
 toPair :: a -> b -> (a, b)
 toPair a b = (a, b)
 ````
@@ -305,7 +305,7 @@ types. What could be simpler? (Well, actually, Haskell has another name for
 Obversely, we can write functions that extract the first and second members of
 a pair:
 
-````
+```haskell
 getFirst :: (a, b) -> a
 getFirst (a, b) = a
 
@@ -330,7 +330,7 @@ language above, which wasn't interpreted unless we made it so).
 We can also take the long way round. Let's define an abstract data type for a
 pair of an `a` and a `b`, as follows:
 
-````
+```haskell
 data Pair a b = Pair a b    -- Here, the type constructor (on the left-hand
   deriving Show             -- side of the =) and the data constructor (on the
                             -- right) have the same name. But actually, they
@@ -357,7 +357,7 @@ Yet another way to think about pairs, mentioned towards the end of our first
 lecture, is the so-called "Church encoding" (after [Alonzo
 Church](https://en.wikipedia.org/wiki/Alonzo_Church)). It looks like this:
 
-````
+```haskell
 pair :: a -> b -> (a -> b -> c) -> c
 pair x y = \f -> f x y
 ````
