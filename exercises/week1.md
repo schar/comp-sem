@@ -273,6 +273,11 @@ Notice that this interpreter, like semanticists' ⟦⟧, is recursive: to evalua
 e.g., `Add u v`, you evaluate `u` and `v` (which can themselves be arbitrarily
 complex `Exp`'s), and then add the results together.
 
+This style of programming, by the way, uses something called **pattern
+matching**, because you're inspecting the *structure* of `eval`'s argument and
+using it to write a concise definition for the function. [It's pretty
+rad](https://www.youtube.com/watch?v=LCcHrDMsfDg).
+
 ### Pairs
 
 As it happens, Haskell natively supports ordered pairs. The type it assigns
@@ -308,10 +313,8 @@ getSecond :: (a, b) -> b
 getSecond (a, b) = b
 ````
 
-This style of programming is called **pattern matching**, because you're
-inspecting the structure of the function's argument and using it to write a
-concise definition for the function. [It's pretty
-rad](https://www.youtube.com/watch?v=LCcHrDMsfDg).
+Just like `eval`, we use pattern matching in our definitions of `getFirst` and
+`getSecond`.
 
 Using these tools, can you write a function `incrementFirst :: (Int, a) ->
 (Int, a)`, which takes an ordered pair of an integer and whatever, and
@@ -345,7 +348,8 @@ expression, full stop)! If this makes your head hurt, don't worry about it too
 much. You'll get used to it.
 
 Can you make this abstract data type real? That is, can you see how to define
-analogs of `getFirst`, `getSecond`, and `incrementFirst` for it?
+analogs of `getFirst`, `getSecond`, and `incrementFirst` for it? (Hint:
+remember that you can pattern match on data constructors.)
 
 ### Pairs as functions
 
