@@ -26,13 +26,13 @@ Do not hesitate to get in touch with questions or feedback. Happy hunting!
 
     ```bash
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    ````
+    ```
 
     Once that's done (shouldn't take long), paste the following:
 
     ```bash
     brew update; brew cask install haskell-platform
-    ````
+    ```
 
     That should do it.
 
@@ -45,7 +45,7 @@ Do not hesitate to get in touch with questions or feedback. Happy hunting!
     ```bash
     GHCi, version 8.0.2: http://www.haskell.org/ghc/  :? for help
     Prelude>
-    ````
+    ```
 
     (`GHCi` stands for the **G**lasgow **H**askell **C**ompiler, interactive
     mode.)
@@ -75,7 +75,7 @@ Do not hesitate to get in touch with questions or feedback. Happy hunting!
 
     ```bash
     ghci ~/haskell/simon.hs
-    ````
+    ```
 
     Things are even simpler on Windows. See [this
     video](https://www.youtube.com/watch?v=87haMtLLcJQ) for an only somewhat
@@ -119,7 +119,7 @@ GHCi, version 8.0.2: http://www.haskell.org/ghc/  :? for help
 [1 of 1] Compiling Main             ( week1.hs, interpreted )
 Ok, modules loaded: Main.
 *Main>
-````
+```
 
 In this case, boring is good! It means that `week1.hs` has successfully
 type-checked, which means you can have a reasonable degree of confidence that
@@ -140,7 +140,7 @@ myNumber = 2      -- Anything after a '--' is ignored by the compiler!
 
 myBool :: Bool
 myBool = not True
-````
+```
 
 What does `myBool` evaluate to?
 
@@ -150,7 +150,7 @@ you think happens if you try to run the following?
 ```haskell
 myMistake :: Int
 myMistake = not True
-````
+```
 
 ### Functions
 
@@ -161,7 +161,7 @@ integer and then adds 3, it would look like this:
 ```haskell
 aFunction :: Int -> Int
 aFunction = \x -> x*2 + 3
-````
+```
 
 This is equivalent to a **combinator**-style definition, i.e., one without an
 explicit abstraction:
@@ -169,7 +169,7 @@ explicit abstraction:
 ```haskell
 anotherFunction :: Int -> Int
 anotherFunction x = x*2 + 3
-````
+```
 
 The latter style is more idiomatic for most cases.
 
@@ -180,7 +180,7 @@ function does? Do you know it by any other names?
 mystery :: Bool -> Bool
 mystery True = False
 mystery _    = True     -- this means "whatever you feed me, I'll return True"
-````
+```
 
 And functions can be defined **recursively**, as well (i.e., where the
 right-hand side of a function definition refers to the function being defined).
@@ -190,7 +190,7 @@ Do you recognize the following function? What does it do? What is `spooky 5`?
 spooky :: Int -> Int
 spooky 1 = 1
 spooky n = n * (spooky (n - 1))
-````
+```
 
 ### Data constructors and ADTs
 
@@ -208,7 +208,7 @@ our arithmetic language as an abstract data type:
 data Exp = Num Int | Add Exp Exp | Mult Exp Exp | Div Exp Exp
   deriving Show   -- this last line is some boilerplate
                   -- which allows Exp's to be displayed by ghci
-````
+```
 
 In Haskell, the data constructors are treated as actual functions ('first-class
 values', in the parlance)! For example, if you ask `ghci` what the type of
@@ -219,7 +219,7 @@ replies):
 ```bash
 > :t Add
 Add :: Exp -> Exp -> Exp
-````
+```
 
 And, rather amazingly, given the definition of `Exp` above, `ghci`'s
 type-checker has instantly turned into a well-formedness checker for our little
@@ -229,7 +229,7 @@ example, in `ghci`, you can observe the following behavior:
 ```bash
 > Mult (Mult (Add (Num 1) (Num 2)) (Num 10)) (Num 5)
 Mult (Mult (Add (Num 1) (Num 2)) (Num 10)) (Num 5)
-````
+```
 
 Ok, nothing happened, but more importantly, nothing bad happened! The complex
 term was immediately recognized as an `Exp`.
@@ -246,7 +246,7 @@ term was immediately recognized as an `Exp`.
       In the expression: Add (Num 1) (Num 1) (Num 1)
       In an equation for ‘it’: it = Add (Num 1) (Num 1) (Num 1)
     • Relevant bindings include it :: t (bound at <interactive>:7:1)
-````
+```
 
 This is a lot of scary nastiness (though the first 3 lines are reasonably
 direct), but it's basically telling you that you can't add three numbers all at
@@ -267,7 +267,7 @@ eval (Add u v)  = (eval u) + (eval v)
 eval (Mult u v) = (eval u) * (eval v)
 eval (Div u v)  = (eval u) `div` (eval v)   -- `div` is integer division in
                                             --  Haskell. Don't sweat it.
-````
+```
 
 Notice that this interpreter, like semanticists' ⟦⟧, is recursive: to evaluate,
 e.g., `Add u v`, you evaluate `u` and `v` (which can themselves be arbitrarily
@@ -287,7 +287,7 @@ ordered pair (a very common idiom in Haskell). So, for example:
 ```haskell
 myPair :: (Int, Bool)
 myPair = (5, False)
-````
+```
 
 We can write a function that takes two values and builds an ordered pair out
 of them. It looks like this:
@@ -295,7 +295,7 @@ of them. It looks like this:
 ```haskell
 toPair :: a -> b -> (a, b)
 toPair a b = (a, b)
-````
+```
 
 Notice that this function is **polymorphic**: `a` and `b` are *variables over
 types*! Thus, `toPair` can build a pair out of any two values, with any two
@@ -311,7 +311,7 @@ getFirst (a, b) = a
 
 getSecond :: (a, b) -> b
 getSecond (a, b) = b
-````
+```
 
 Just like `eval`, we use pattern matching in our definitions of `getFirst` and
 `getSecond`.
@@ -337,7 +337,7 @@ data Pair a b = Pair a b    -- Here, the type constructor (on the left-hand
                             -- could have different names. Again, Haskellers
                             -- like being mnemonic about types and data. This
                             -- may take some getting used to.
-````
+```
 
 Notice that the type constructor `Pair` is **parametrized** by two types `a`
 and `b` (and the data constructor is parametrized by two values, of types `a`
@@ -360,7 +360,7 @@ Church](https://en.wikipedia.org/wiki/Alonzo_Church)). It looks like this:
 ```haskell
 pair :: a -> b -> (a -> b -> c) -> c
 pair x y = \f -> f x y
-````
+```
 
 Thus, a `pair` of `x` and `y` is actually a **higher-order function**,
 something that takes a function `f` as an argument, and then applies it to `x`
