@@ -99,7 +99,30 @@ Do not hesitate to get in touch with questions or feedback. Happy hunting!
 
 ## Some practice
 
-Ok! Now that that's out of the way, let's warm up with some simple exercises
+Ok! Now that that's out of the way, let's warm up with some simple exercises.
+I've prepared a
+[`week1.hs`](https://raw.githubusercontent.com/schar/comp-sem/master/exercises/srcs/week1.hs)
+file that factors out all the code, and leaves some places for you to fill in
+the blanks. You can save it and open it right up with `ghci` (as described
+above). I'll probably do this somewhat differently in coming weeks.
+
+Notice that `ghci` should successfully run `week1.hs`, but the output will be
+pretty boring. Here's what it looks like on my system:
+
+````
+Simons-MBP:srcs simoncharlow$ ghci week1.hs
+GHCi, version 8.0.2: http://www.haskell.org/ghc/  :? for help
+[1 of 1] Compiling Main             ( week1.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+````
+
+In this case, boring is good! It means that `week1.hs` has successfully
+type-checked, which means you can have a reasonable degree of confidence that
+things are working as they should (remember: types tell you a great deal about
+the correctness of your code). Whenever you make some changes to `week1.hs` and
+save the file, you can type `:r` in the `ghci` window to refresh the file and
+make sure it still type-checks.
 
 ### Types
 
