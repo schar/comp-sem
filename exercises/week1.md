@@ -330,21 +330,23 @@ increases the integer by one?
 
 ### Pairs as an abstract data type
 
-As we've seen, Haskell actually implements pairs natively, supporting
-operations on them without any need for us lowly end-users to define an
-interpretation for the pairs (in contrast with our hand-rolled arithmetic
-language above, which wasn't interpreted unless we made it so).
+Haskell natively supports ordered pairs (in contrast with our hand-rolled
+arithmetic language above, which wasn't interpreted until we made it so). For
+example, Haskell already implements functions `fst` and `snd` with the same
+definitions as `getFirst` and `getSecond` above.
 
-We can also take the long way round. Let's define an abstract data type for a
-pair of an `a` and a `b`, as follows:
+Here, we'll walk through how we might implement ordered pairs using an ADT
+syntax. Let's define an abstract data type for a pair of an `a` and a `b`, as
+follows:
 
 ```haskell
 data Pair a b = Pair a b    -- Here, the type constructor (on the left-hand
   deriving Show             -- side of the =) and the data constructor (on the
                             -- right) have the same name. But actually, they
-                            -- could have different names. Again, Haskellers
-                            -- like being mnemonic about types and data. This
-                            -- may take some getting used to.
+                            -- could have different names (Pair and Pear, for
+                            -- isntance. Again, Haskellers like being mnemonic
+                            -- about types and data. This may take some getting
+                            -- used to.
 ```
 
 Notice that the type constructor `Pair` is **parametrized** by two types `a`
