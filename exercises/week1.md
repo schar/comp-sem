@@ -20,9 +20,9 @@ Do not hesitate to get in touch with questions or feedback. Happy hunting!
     system and having any difficulties, let me know.
 
     If you're on a Mac and feeling adventurous, you can **instead** install
-    Haskell via a package manager (Homebrew is lit). To brew Haskell, open a
-    Terminal window (accessible via Spotlight search), paste the following, and
-    then press `Enter`:
+    Haskell via a package manager. [`Homebrew`](http://brew.sh), for example,
+    is lit. To Brew Haskell, open a Terminal window (accessible via Spotlight
+    search), paste the following, and then press `Enter`:
 
     ```bash
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -31,7 +31,7 @@ Do not hesitate to get in touch with questions or feedback. Happy hunting!
     Once that's done (shouldn't take long), paste the following:
 
     ```bash
-    brew update; brew cask install haskell-platform
+    brew cask install haskell-platform
     ```
 
     That should do it.
