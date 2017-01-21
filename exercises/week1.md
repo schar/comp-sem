@@ -77,6 +77,12 @@ Do not hesitate to get in touch with questions or feedback. Happy hunting!
     ghci ~/haskell/simon.hs
     ```
 
+    The following would also work (`cd` is the 'change directory' command):
+
+    ```bash
+    cd ~/haskell; ghci simon.hs
+    ```
+
     Things are even simpler on Windows. See [this
     video](https://www.youtube.com/watch?v=87haMtLLcJQ) for an only somewhat
     creepy description of the process (don't worry about his actual code for
@@ -106,9 +112,11 @@ Do not hesitate to get in touch with questions or feedback. Happy hunting!
 Ok! Now that that's out of the way, let's warm up with some simple exercises.
 I've prepared a
 [`week1.hs`](https://raw.githubusercontent.com/schar/comp-sem/master/exercises/srcs/week1.hs)
-file that factors out all the code, and leaves some places for you to fill in
-the blanks. You can save it and open it right up with `ghci` (as described
-above). I'll probably do this somewhat differently in coming weeks.
+file that factors out all the code from this tutorial, and leaves some places
+for you to fill in the blanks. You can save it directly to your `~/haskell`
+directory (make sure that you save it with the `.hs` extension, not `.txt`!)
+and open it right up with `ghci` (as described above). I'll probably do this
+somewhat differently in coming weeks.
 
 Notice that `ghci` should successfully run `week1.hs`, but the output will be
 pretty boring. Here's what it looks like on my system:
