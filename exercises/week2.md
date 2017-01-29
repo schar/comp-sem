@@ -11,8 +11,10 @@ before getting started on this.
 
 ## Lists in Haskell
 
-This week's lecture focused on **alternatives**: sets of possibilities that
-represent something like the values of utterances a speaker could have made.
+[This week's
+lecture](https://www.dropbox.com/s/qy37h6xs49qod71/s17-01-25.pdf?dl=0) focused
+on **alternatives**: sets of possibilities that represent something like the
+values of utterances a speaker could have made.
 
 As I mentioned briefly in class, sets -- unordered groups of stuff where no
 element appears more than once -- are actually *less straightforward* to
