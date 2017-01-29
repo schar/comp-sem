@@ -101,11 +101,11 @@ pair x y = \f -> f x y
 
 -- un-comment the below definitions, filling in types and values for these
 -- three functions...
--- getFirstChurch ::
--- getFirstChurch
+getFirstChurch :: ((a -> b -> a) -> c) -> c
+getFirstChurch p = p (\a _ -> a)
 
--- getSecondChurch ::
--- getSecondChurch
+getSecondChurch :: ((a -> b -> b) -> c) -> c
+getSecondChurch p = p (\_ b -> b)
 
--- incrementFirstChurch ::
--- incrementFirstChurch
+incrementFirstChurch :: Num b => ((a -> a -> a) -> b) -> (b -> b -> c) -> c
+incrementFirstChurch p = pair (getFirstChurch p + 1) (getSecondChurch p)
