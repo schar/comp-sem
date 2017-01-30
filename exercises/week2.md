@@ -46,7 +46,7 @@ than once in `myList`):
 
 ```haskell
 myList :: List Int
-myList = Add 2 (Add 3 (Add 4 (Add 2 Nil)))
+myList = Add 2 (Add 3 (Add 4 (Add 2 Empty)))
 ```
 
 1.  Using this definition of `List`, write a function `headList` that extracts
@@ -55,7 +55,8 @@ myList = Add 2 (Add 3 (Add 4 (Add 2 Nil)))
 
     ```haskell
     headList :: List a -> a
-    headList -- You fill this in.
+    headList  -- You fill this in.
+              -- Make sure that headList myList = 2
     ```
 
     What behavior do you observe when you try to apply your function to
@@ -65,7 +66,8 @@ myList = Add 2 (Add 3 (Add 4 (Add 2 Nil)))
 
     ```haskell
     tailList :: List a -> List a
-    tailList -- You fill this in.
+    tailList  -- You fill this in.
+              -- Make sure that tailList myList = Add 3 (Add 4 (Add 2 Empty))
     ```
 
 2.  One of the central operations on lists (actually, one of the central
