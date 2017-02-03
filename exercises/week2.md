@@ -28,8 +28,10 @@ be working with lists in this group of exercises.
 As with pairs, we can define lists primitively using an abstract data
 type:
 
-> data List a = Empty | Add a (List a)
->   deriving (Show, Eq)
+``` {.haskell .literate}
+data List a = Empty | Add a (List a)
+  deriving (Show, Eq)
+```
 
 This definition says that a `List` of `a`'s is either the `Empty` list
 of `a`'s (analogous to the empty set), or the result of `Add`-ing
@@ -47,26 +49,32 @@ According to the definition of `List` above, lists are constructed by
 adding things to the empty list. Here's a simple example (notice that
 `2` occurs more than once in `myList`):
 
-> myList :: List Int
-> myList = Add 2 (Add 3 (Add 4 (Add 2 Empty)))
+``` {.haskell .literate}
+myList :: List Int
+myList = Add 2 (Add 3 (Add 4 (Add 2 Empty)))
+```
 
 1.  Using this definition of `List`, write a function `headList` that
     extracts the first element of any non-empty `List` (its **head**; if
     you lop the head off of a list, you're left with its **tail**)? I'll
     get you started:
 
-    > headList :: List a -> a
-    > headList  -- You fill this in.
-    >           -- Make sure that headList myList = 2
+    ``` {.haskell .literate}
+    headList :: List a -> a
+    headList  -- You fill this in.
+              -- Make sure that headList myList = 2
+    ```
 
     What behavior do you observe when you try to apply your function to
     `Empty`? What do you think went wrong (or right)?
 
     Now write a `tailList` function to extract a list's tail.
 
-    > tailList :: List a -> List a
-    > tailList  -- You fill this in.
-    >           -- Make sure that tailList myList = Add 3 (Add 4 (Add 2 Empty))
+    ``` {.haskell .literate}
+    tailList :: List a -> List a
+    tailList  -- You fill this in.
+              -- Make sure that tailList myList = Add 3 (Add 4 (Add 2 Empty))
+    ```
 
 2.  One of the central operations on lists (actually, one of the central
     operations in all of Haskell) is **mapping**. Mapping a function *f*
@@ -78,20 +86,24 @@ adding things to the empty list. Here's a simple example (notice that
 
     Write a recursive `mapList` function. I'll get you started:
 
-    > mapList :: (a -> b) -> List a -> List b -- does this type make sense?
-    > mapList f Empty = Empty
-    > mapList f (Add h t) =   -- You fill this in. Remember that the function
-    >                         -- should be recursive. So the right-hand side of
-    >                         -- this line should mention mapList again. Make
-    >                         -- sure the result you get is the original list,
-    >                         -- but with f applied to each element.
+    ``` {.haskell .literate}
+    mapList :: (a -> b) -> List a -> List b -- does this type make sense?
+    mapList f Empty = Empty
+    mapList f (Add h t) =   -- You fill this in. Remember that the function
+                            -- should be recursive. So the right-hand side of
+                            -- this line should mention mapList again. Make
+                            -- sure the result you get is the original list,
+                            -- but with f applied to each element.
+    ```
 
 3.  Another important operation on lists is **concatenation**. Let's see
     if you can work backwards from a definition to what it does.
 
-    > concatList :: List a -> List a -> List a
-    > concatList Empty xs = xs
-    > concatList (Add h t) xs = Add h (concatList t xs)
+    ``` {.haskell .literate}
+    concatList :: List a -> List a -> List a
+    concatList Empty xs = xs
+    concatList (Add h t) xs = Add h (concatList t xs)
+    ```
 
     Describe what this function does, and how it does it. Don't look
     ahead until you do! ;) (**Hint**: try applying this function to a
@@ -107,11 +119,15 @@ adding things to the empty list. Here's a simple example (notice that
     behave as follows (note on notation: Haskell uses `==` to talk about
     equality, and reserves `=` for definitions):
 
-    > flatten (Add (Add 3 Empty) (Add (Add 4 Empty) (Add (Add 5 Empty) Empty))) == Add 3 (Add 4 (Add 5 Empty))
+    ``` {.haskell .literate}
+    flatten (Add (Add 3 Empty) (Add (Add 4 Empty) (Add (Add 5 Empty) Empty))) == Add 3 (Add 4 (Add 5 Empty))
+    ```
 
-    > flatten :: List (List a) -> List a
-    > flatten Empty = Empty
-    > flatten (Add h t) = -- You fill this in.
+    ``` {.haskell .literate}
+    flatten :: List (List a) -> List a
+    flatten Empty = Empty
+    flatten (Add h t) = -- You fill this in.
+    ```
 
     You'll probably find this one extra hard. Don't worry if you get
     stuck.
@@ -130,8 +146,10 @@ Too many parentheses! Too much nesting! Eugh! Thankfully, Haskell
 natively supports lists, along with the aforementioned important
 operations on lists:
 
-> newList :: [Int]
-> newList = [1,2,3,4]
+``` {.haskell .literate}
+newList :: [Int]
+newList = [1,2,3,4]
+```
 
 (Remember what I said about how Haskellers love using the same syntax
 for types and data?)
@@ -140,7 +158,9 @@ The empty list is written `[]`, and our `Add` operation is written as an
 infixed operator named `:`. For example (note on notation: Haskell uses
 `==` to talk about equality, and reserves `=` for definitions):
 
-> 1 : [2,3,4] == [1,2,3,4]
+``` {.haskell .literate}
+1 : [2,3,4] == [1,2,3,4]
+```
 
 The head of a list can be retrieved with the `head` function (already
 defined for you), and the tail of a list with the `tail` function.
@@ -152,11 +172,13 @@ Similarly, Haskell defines mapping, concatenation, and flattening
 operations for you (though, somewhat confusingly, it calls the
 flattening operation `concat`):
 
-> map (+1) [1,2,3,4,5] == [2,3,4,5,6]
->
-> [1,2,3] ++ [3,4,5] == [1,2,3,3,4,5]
->
-> concat [[1,2,3],[7,8,9],[7,3,5]] == [1,2,3,7,8,9,7,3,5]
+``` {.haskell .literate}
+map (+1) [1,2,3,4,5] == [2,3,4,5,6]
+
+[1,2,3] ++ [3,4,5] == [1,2,3,3,4,5]
+
+concat [[1,2,3],[7,8,9],[7,3,5]] == [1,2,3,7,8,9,7,3,5]
+```
 
 This makes life a *lot* easier. But let's pretend for a minute that
 things weren't so easy:
@@ -178,7 +200,9 @@ Yet another way that Haskell makes it easy to work with lists is **list
 comprehensions**, which are very similar to the more familiar set
 comprehensions. Here's a simple example:
 
-> [x*y | x <- [4,5,6], y <- [1,10,100]] == [4,40,400,5,50,500,6,60,600]
+``` {.haskell .literate}
+[x*y | x <- [4,5,6], y <- [1,10,100]] == [4,40,400,5,50,500,6,60,600]
+```
 
 In prose, the left-hand side of this equation says to multiply `x` and
 `y`, where `x` is drawn from the list `[4,5,6]`, and `y` from the list
@@ -206,21 +230,27 @@ Recall the Partee (1986) triangle: it has two essential pieces:
 1.  Give the list version of the `return` function. Remember that it
     should map any `x` into the most boring possible list.
 
-    > retList :: a -> [a]
-    > retList x =   -- You fill this in.
+    ``` {.haskell .literate}
+    retList :: a -> [a]
+    retList x =   -- You fill this in.
+    ```
 
 2.  The list version of the `A`-shifter can be defined as follows:
 
-    > aList :: [a] -> (a -> Bool) -> Bool
-    > aList m f = any f m   -- this can also be defined as 'flip any'
+    ``` {.haskell .literate}
+    aList :: [a] -> (a -> Bool) -> Bool
+    aList m f = any f m   -- this can also be defined as 'flip any'
+    ```
 
     This uses a handy Haskell function called `any` with type
     `(a -> Bool) -> [a] -> Bool`, which conveniently does exactly what
     the `A`-shifter does, though it takes its two arguments in the
     reverse order.
 
-    > any even [5,7,9,4] == True    -- there's an even number in [5,7,9,4]
-    > any even [5,7,9,1] == False   -- there's an even number in [5,7,9,1]
+    ``` {.haskell .literate}
+    any even [5,7,9,4] == True    -- there's an even number in [5,7,9,4]
+    any even [5,7,9,1] == False   -- there's an even number in [5,7,9,1]
+    ```
 
     An important feature of the Partee triangle is that `return` and `A`
     form a **decomposition** of `LIFT`. In other words,
