@@ -140,6 +140,8 @@ adding things to the empty list. Here's a simple example (notice that
 
 ```
 
+So let's see about defining `flatten`:
+
     ``` {.haskell}
 
 >     flatten :: List (List a) -> List a
