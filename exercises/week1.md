@@ -154,11 +154,11 @@ of an expression when you define it. That looks like this:
 
 ``` {.haskell}
 
-> myNumber :: Int   -- Int is the type of an integer
-> myNumber = 2      -- Anything after a '--' is ignored by the compiler!
+myNumber :: Int   -- Int is the type of an integer
+myNumber = 2      -- Anything after a '--' is ignored by the compiler!
 
-> myBool :: Bool
-> myBool = not True
+myBool :: Bool
+myBool = not True
 
 ```
 
@@ -169,8 +169,8 @@ What do you think happens if you try to run the following?
 
 ``` {.haskell}
 
-> myMistake :: Int
-> myMistake = not True
+myMistake :: Int
+myMistake = not True
 
 ```
 
@@ -182,8 +182,8 @@ an integer and then adds 3, it would look like this:
 
 ``` {.haskell}
 
-> aFunction :: Int -> Int
-> aFunction = \x -> x*2 + 3
+aFunction :: Int -> Int
+aFunction = \x -> x*2 + 3
 
 ```
 
@@ -192,8 +192,8 @@ without an explicit abstraction:
 
 ``` {.haskell}
 
-> anotherFunction :: Int -> Int
-> anotherFunction x = x*2 + 3
+anotherFunction :: Int -> Int
+anotherFunction x = x*2 + 3
 
 ```
 
@@ -204,9 +204,9 @@ following function does? Do you know it by any other names?
 
 ``` {.haskell}
 
-> mystery :: Bool -> Bool
-> mystery True = False
-> mystery _    = True     -- this means "whatever you feed me, I'll return True"
+mystery :: Bool -> Bool
+mystery True = False
+mystery _    = True     -- this means "whatever you feed me, I'll return True"
 
 ```
 
@@ -217,9 +217,9 @@ is `spooky 5`?
 
 ``` {.haskell}
 
-> spooky :: Int -> Int
-> spooky 1 = 1
-> spooky n = n * (spooky (n - 1))
+spooky :: Int -> Int
+spooky 1 = 1
+spooky n = n * (spooky (n - 1))
 
 ```
 
@@ -238,9 +238,9 @@ define our arithmetic language as an abstract data type:
 
 ``` {.haskell}
 
-> data Exp = Num Int | Add Exp Exp | Mult Exp Exp | Div Exp Exp
->   deriving Show   -- this last line is some boilerplate
->                   -- which allows Exp's to be displayed by ghci
+data Exp = Num Int | Add Exp Exp | Mult Exp Exp | Div Exp Exp
+  deriving Show   -- this last line is some boilerplate
+                  -- which allows Exp's to be displayed by ghci
 
 ```
 
@@ -251,7 +251,7 @@ write `>`, I mean that I'm entering things directly in the `ghci`
 prompt; the following line is how `ghci` replies):
 
 ``` {.bash}
-$ :t Add
+> :t Add
 Add :: Exp -> Exp -> Exp
 ```
 
@@ -262,7 +262,7 @@ little arithmetic language (it *recognizes* all and only the well-formed
 behavior:
 
 ``` {.bash}
-$ Mult (Mult (Add (Num 1) (Num 2)) (Num 10)) (Num 5)
+> Mult (Mult (Add (Num 1) (Num 2)) (Num 10)) (Num 5)
 Mult (Mult (Add (Num 1) (Num 2)) (Num 10)) (Num 5)
 ```
 
@@ -272,7 +272,7 @@ complex term was immediately recognized as an `Exp`.
 ...Alongside the following behavior:
 
 ``` {.bash}
-$ Add (Num 1) (Num 1) (Num 1)
+> Add (Num 1) (Num 1) (Num 1)
 
 <interactive>:7:1: error:
     • Couldn't match expected type ‘Exp -> t’ with actual type ‘Exp’
@@ -297,12 +297,12 @@ the above pieces, an interpreter for `Exp` looks like so:
 
 ``` {.haskell}
 
-> eval :: Exp -> Int
-> eval (Num x)    = x
-> eval (Add u v)  = (eval u) + (eval v)
-> eval (Mult u v) = (eval u) * (eval v)
-> eval (Div u v)  = (eval u) `div` (eval v)   -- `div` is integer division in
->                                             --  Haskell. Don't sweat it.
+eval :: Exp -> Int
+eval (Num x)    = x
+eval (Add u v)  = (eval u) + (eval v)
+eval (Mult u v) = (eval u) * (eval v)
+eval (Div u v)  = (eval u) `div` (eval v)   -- `div` is integer division in
+                                            --  Haskell. Don't sweat it.
 
 ```
 
@@ -325,8 +325,8 @@ example:
 
 ``` {.haskell}
 
-> myPair :: (Int, Bool)
-> myPair = (5, False)
+myPair :: (Int, Bool)
+myPair = (5, False)
 
 ```
 
@@ -335,8 +335,8 @@ out of them. It looks like this:
 
 ``` {.haskell}
 
-> toPair :: a -> b -> (a, b)
-> toPair a b = (a, b)
+toPair :: a -> b -> (a, b)
+toPair a b = (a, b)
 
 ```
 
@@ -350,11 +350,11 @@ members of a pair:
 
 ``` {.haskell}
 
-> getFirst :: (a, b) -> a
-> getFirst (a, b) = a
+getFirst :: (a, b) -> a
+getFirst (a, b) = a
 
-> getSecond :: (a, b) -> b
-> getSecond (a, b) = b
+getSecond :: (a, b) -> b
+getSecond (a, b) = b
 
 ```
 
@@ -378,13 +378,13 @@ a `b`, as follows:
 
 ``` {.haskell}
 
-> data Pair a b = Pair a b    -- Here, the type constructor (on the left-hand
->   deriving Show             -- side of the =) and the data constructor (on the
->                             -- right) have the same name. But actually, they
->                             -- could have different names (Pair and Pear, for
->                             -- isntance. Again, Haskellers like being mnemonic
->                             -- about types and data. This may take some getting
->                             -- used to.
+data Pair a b = Pair a b    -- Here, the type constructor (on the left-hand
+  deriving Show             -- side of the =) and the data constructor (on the
+                            -- right) have the same name. But actually, they
+                            -- could have different names (Pair and Pear, for
+                            -- isntance. Again, Haskellers like being mnemonic
+                            -- about types and data. This may take some getting
+                            -- used to.
 
 ```
 
@@ -409,8 +409,8 @@ this:
 
 ``` {.haskell}
 
-> pair :: a -> b -> (a -> b -> c) -> c
-> pair x y = \f -> f x y
+pair :: a -> b -> (a -> b -> c) -> c
+pair x y = \f -> f x y
 
 ```
 
