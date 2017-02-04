@@ -12,9 +12,10 @@ A small change of plans
 
 We're going to try something a bit different starting this week. The lecture
 files are going to be *runnable Haskell code*. All you have to do is download
-the exercise file, either by clicking [this link](), or simply clicking the
-`Raw` button at the top-right of the exercises and saving the file. Follow
-these steps:
+the exercise file, either by clicking [this
+link](https://raw.githubusercontent.com/schar/comp-sem/master/exercises/week3.md),
+or simply clicking the `Raw` button at the top-right of the exercises and
+saving the file. Follow these steps:
 
 1.  **Save** the `.md` file into the directory where your Haskell files live.
 
