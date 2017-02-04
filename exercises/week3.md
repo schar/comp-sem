@@ -23,7 +23,7 @@ saving the file. Follow these steps:
     to do this looks like this:
 
     ``` {.bash}
-    mv week3.md week3.lhs
+    $ mv week3.md week3.lhs
     ```
     (If you just rename the file like you usually do, there's a small danger
     that your file will look to you as if it was named `week3.lhs`, but in
@@ -359,7 +359,7 @@ the type should look LIFT-y. Then, you might try `:t \m -> mapAndFlat m
 returnList`; the type should look identity-function-y.
 
 Now that you have these two helper functions, you should be able to give a
-couple distinct derivations for _a lawyer visits a relative_ . They'll both
+couple distinct derivations for _a lawyer visits a relative_. They'll both
 involve `mapAndFlat`, `returnList`, and scoping. (Hint: the derivations will
 differ in the relative scopes of the `mapAndFlat`-ed indefinites.)
 
