@@ -180,7 +180,7 @@ complain if you try to re-define them).
 ```
 
 Using lists, we can give give indefinite-like entries corresponding to *a
-relative* and *a lawyer*, in terms of sets of individuals:
+relative* and *a lawyer*, in terms of lists (sets) of individuals:
 
 ``` {.haskell}
 
