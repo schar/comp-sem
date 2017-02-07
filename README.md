@@ -7,26 +7,16 @@ exploit tools developed by computer scientists to structure semantic theory,
 and possibly develop more principled semantic architectures, with improved
 empirical coverage in various domains.
 
-We'll see how *monads* (along with *functors* and *applicatives*),
-*continuations*, and *type theory* are invaluable additions to the
-semanticist's toolkit, and how they can ground theories of indefinites (and
-indefiniteness), binding, quantification and scope, dynamics, focus,
-presupposition, supplementation, and (one hopes!) their interactions.
+We'll see how *monads* (along with the related concepts of *functors* and
+*applicatives*), *continuations*, and *type theory* can be used to ground and
+enrich theories of indefinites (and indefiniteness), binding, quantification
+and scope, dynamics, focus, presupposition, supplementation, and (one hopes!)
+their interactions.
 
 The coursework involves weekly readings, short weekly-ish problem sets (to
 help you consolidate understanding of new technical concepts), and a short term
 paper (10-15 pages), due at the conclusion of the class. I'll be in touch with
 enrolled students after Spring Break about paper topics.
-
-## Schedule
-
-I think it's easiest to earn an abstraction by considering a couple concrete
-cases in some depth, and then reflecting on what they have in common. To that
-end, we'll spend our first 5-6 weeks on alternatives, binding, and their
-interactions. The aim will be to develop a command of how monads
-can be used to structure a semantic theory in a given emprirical domain.
-
-<center>
 
 |                      | Topic                        | Reading               | Slides                                                                 | Exercises                                                                 |
 |----------------------|------------------------------|-----------------------|------------------------------------------------------------------------|---------------------------------------------------------------------------|
@@ -44,5 +34,3 @@ can be used to structure a semantic theory in a given emprirical domain.
 | **Week 12** (Apr 12) |                              |                       |                                                                        |                                                                           |
 | **Week 13** (Apr 19) |                              |                       |                                                                        |                                                                           |
 | **Week 14** (Apr 26) |                              |                       |                                                                        |                                                                           |
-
-</center>
