@@ -23,7 +23,10 @@ enrolled students after Spring Break about paper topics.
 I think it's easiest to earn an abstraction by considering a couple concrete
 cases in some depth, and then reflecting on what they have in common. To that
 end, we'll spend our first 5-6 weeks on alternatives, binding, and their
-interactions
+interactions. The aim will be to develop a command of how monads
+can be used to structure a semantic theory in a given emprirical domain.
+
+<center>
 
 |                      | Topic                        | Reading               | Slides                                                                 | Exercises                                                                 |
 |----------------------|------------------------------|-----------------------|------------------------------------------------------------------------|---------------------------------------------------------------------------|
@@ -41,3 +44,5 @@ interactions
 | **Week 12** (Apr 12) |                              |                       |                                                                        |                                                                           |
 | **Week 13** (Apr 19) |                              |                       |                                                                        |                                                                           |
 | **Week 14** (Apr 26) |                              |                       |                                                                        |                                                                           |
+
+</center>
