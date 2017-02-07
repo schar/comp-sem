@@ -131,7 +131,7 @@ in type `E` into `True` or `False`, but that ends up being a fairly obscure
 way to begin (whether a sentence is `True` or `False` doesn't tell you much
 about how the sentence *came to be such*).
 
-**Exercise: define meanings (with types) for _and'_ and _didn't_. Assume the
+**Exercise: define meanings (with types) for _and_ and _didn't_. Assume the
 syntax gives you things of the form `[p [and q]]` and `[x [didn't p]]`.**
 
 ``` {.haskell}
@@ -145,7 +145,6 @@ syntax gives you things of the form `[p [and q]]` and `[x [didn't p]]`.**
 ```
 
 (Un-comment the lines, then write your answers.)
-
 
 Lists review
 ------------
