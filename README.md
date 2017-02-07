@@ -1,5 +1,7 @@
 # Computational semantics seminar
 
+## Overview
+
 Welcome to the website for the Spring 2017 Seminar in Semantics!
 
 This semester, we're taking a look at how natural language semanticists can
@@ -17,6 +19,11 @@ The coursework involves weekly readings, short weekly-ish problem sets (to
 help you consolidate understanding of new technical concepts), and a short term
 paper (10-15 pages), due at the conclusion of the class. I'll be in touch with
 enrolled students after Spring Break about paper topics.
+
+## Course materials
+
+Course materials (including readings, slides, and exercises) can be downloaded
+by following the links below:
 
 |                      | Topic                        | Reading               | Slides                                                                 | Exercises                                                                 |
 |----------------------|------------------------------|-----------------------|------------------------------------------------------------------------|---------------------------------------------------------------------------|
