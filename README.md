@@ -23,7 +23,8 @@ enrolled students after Spring Break about paper topics.
 ## Course materials
 
 Course materials (including readings, slides, and exercises) can be downloaded
-by following the links below:
+by following the links below. You'll need a password to access some of the
+readings, which I'll supply to you via email.
 
 |                      | Topic                        | Reading                                                         | Slides                                                                 | Exercises                                                                 |
 |----------------------|------------------------------|-----------------------------------------------------------------|------------------------------------------------------------------------|---------------------------------------------------------------------------|
