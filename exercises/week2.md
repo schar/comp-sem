@@ -15,7 +15,7 @@ Lists in Haskell
 ----------------
 
 [This week's
-lecture](https://www.dropbox.com/s/qy37h6xs49qod71/s17-01-25.pdf?dl=0)
+lecture](https://github.com/schar/comp-sem/blob/master/slides/week2.pdf)
 focused on **alternatives**: sets of possibilities that represent
 something like the values of utterances a speaker could have made.
 
