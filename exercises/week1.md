@@ -121,7 +121,7 @@ Some practice
 
 Ok! Now that that's out of the way, let's warm up with some simple exercises.
 I've prepared a [`week1.hs` [LINK NOW
-DEPRECATD]](https://raw.githubusercontent.com/schar/comp-sem/master/exercises/srcs/week1.hs)
+DEPRECATED]](https://raw.githubusercontent.com/schar/comp-sem/master/exercises/srcs/week1.hs)
 file that factors out all the code from this tutorial, and leaves some places
 for you to fill in the blanks. You can save it directly to your `~/haskell`
 directory (make sure that you save it with the `.hs` extension, not `.txt`!)
