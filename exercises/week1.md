@@ -9,7 +9,7 @@ way to encode) ordered pairs.
 
 Some of the issues and techniques touch on things discussed on Wednesday
 Jan 18. Those slides can be accessed
-[here](https://www.dropbox.com/s/zlnffvcorru16ay/s17-01-18.pdf?dl=0).
+[here](https://github.com/schar/comp-sem/blob/master/slides/week1.pdf).
 
 Do not hesitate to get in touch with questions or feedback. Happy
 hunting!
@@ -119,14 +119,14 @@ Getting Haskell up and running
 Some practice
 -------------
 
-Ok! Now that that's out of the way, let's warm up with some simple
-exercises. I've prepared a
-[`week1.hs`](https://raw.githubusercontent.com/schar/comp-sem/master/exercises/srcs/week1.hs)
-file that factors out all the code from this tutorial, and leaves some
-places for you to fill in the blanks. You can save it directly to your
-`~/haskell` directory (make sure that you save it with the `.hs`
-extension, not `.txt`!) and open it right up with `ghci` (as described
-above). I'll probably do this somewhat differently in coming weeks.
+Ok! Now that that's out of the way, let's warm up with some simple exercises.
+I've prepared a [`week1.hs` [LINK NOW
+DEPRECATD]](https://raw.githubusercontent.com/schar/comp-sem/master/exercises/srcs/week1.hs)
+file that factors out all the code from this tutorial, and leaves some places
+for you to fill in the blanks. You can save it directly to your `~/haskell`
+directory (make sure that you save it with the `.hs` extension, not `.txt`!)
+and open it right up with `ghci` (as described above). I'll probably do this
+somewhat differently in coming weeks.
 
 Notice that `ghci` should successfully run `week1.hs`, but the output
 will be pretty boring. Here's what it looks like on my system:
@@ -226,7 +226,7 @@ spooky n = n * (spooky (n - 1))
 ### Data constructors and ADTs
 
 Towards the end of [our first
-lecture](https://www.dropbox.com/s/zlnffvcorru16ay/s17-01-18.pdf?dl=0),
+lecture](https://github.com/schar/comp-sem/blob/master/slides/week1.pdf),
 we talked about **data constructors**, which can be used to define
 something called an **abstract data type** (ADT). Basically, this
 amounts to a way of tagging one or more values as values *of a certain
@@ -314,7 +314,6 @@ together.
 This style of programming, by the way, uses something called **pattern
 matching**, because you're inspecting the *structure* of `eval`'s
 argument and using it to write a concise definition for the function.
-[It's pretty rad](https://www.youtube.com/watch?v=LCcHrDMsfDg).
 
 ### Pairs
 
