@@ -270,19 +270,10 @@ occurrences of `>>=` and `return` in programs like `[1,2] >>= \x -> return
 the corresponding `[]`-monad operations (and similarly for the corresponding
 programs written in `do` notation)! How does that work?
 
-Well, it turns out that the GHCi designers have been kind enough to
-*pre-define* something called a **Monad instance** for `[]`. In other words,
-when you fire up GHCi, it knows that `[]` is monadic, and it knows what the
-associated `>>=` and `return` operations are. When it sees you trying to apply
-`>>=` and `return` in a context where list-y operations are required, it knows
-that it should invoke the corresponding list-y definitions of `>>=` and
-`return`!
-
 Technically, this happens via something called the `Monad` **typeclass**.
 Essentially, you declare that a given type constructor is a `Monad`, and
 justify your declaration by providing corresponding definitions for `return`
-and `>>=`, as below. (Notice that these lines aren't bird-tracked. If they
-were, GHCi would complain, as it *already* loads a `Monad` instance for `[]`!)
+and `>>=` like so:
 
 ``` {.haskell}
 
@@ -294,14 +285,18 @@ were, GHCi would complain, as it *already* loads a `Monad` instance for `[]`!)
 
 Once you have a `Monad` instance for a type constructor in hand, you're free to
 use `return`, `>>=`, and `do` notation. GHCi will **automatically** infer,
-based on the types, which monadic operations it needs to invoke.
+based on the types, which specific monadic operations it needs to invoke. (So
+the definition immediately above grounds my use of `return`, `>>=`, and `do`
+notation previously. In practice, GHCi actually loads a bunch of monads for you
+out of the box -- the mysterious few lines at the top of this file are there to
+suppress this default behavior, for your benefit ;p.)
 
-It's important to realize that GHCi **will not check** that your definitions
-for these operators satisfy the monad laws (in fact, in principle, GHCi
-[*cannot* check this](https://en.wikipedia.org/wiki/Halting_problem)). Thus,
-GHCi will only check that your `return` and `>>=` functions have the correct
-types. Checking that they satisfy the monad laws is the programmer's
-responsibility.
+It's important to keep in mind that GHCi **will not check** that your
+definitions for `return` and `>>=` satisfy the monad laws (in fact, in
+principle, GHCi [*cannot* check
+this](https://en.wikipedia.org/wiki/Halting_problem)). Thus, GHCi will only
+check that your `return` and `>>=` functions have the correct types. Checking
+that they satisfy the monad laws is the programmer's responsibility.
 
 **Exercise: recalling our data type for `List` (repeated below), define a
 `Monad` instance for it. (Hint: your definition will be a direct translation of
