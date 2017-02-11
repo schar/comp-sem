@@ -1,6 +1,20 @@
 Week 4 Exercises
 ================
 
+Ignore this :)
+
+``` {.haskell}
+
+> {-# LANGUAGE FlexibleInstances #-}
+
+> import Prelude hiding (Monad, (>>=), return)
+
+> class Monad m where
+>   return :: a -> m a
+>   (>>=)  :: m a -> (a -> m b) -> m b
+
+```
+
 Instructions
 ------------
 
@@ -272,9 +286,9 @@ were, GHCi would complain, as it *already* loads a `Monad` instance for `[]`!)
 
 ``` {.haskell}
 
-instance Monad [] where
-  return x = [x]
-  m >>= f  = concat (map f m)
+> instance Monad [] where
+>   return x = [x]
+>   m >>= f  = concat (map f m)
 
 ```
 
@@ -410,17 +424,16 @@ assignment-dependent individuals:
 
 ```
 
-**Exercise: `G` is monadic! Give entries for a `returnG` function and a `bindG`
-function, with the indicated types (notice that these types match the schema
-for monadic operations `return` and `>>=`).**
+**Exercise: `G` is monadic! Give entries for `return :: a -> G a` and `(>>=) ::
+G a -> (a -> G b) -> G b` below (notice that these types match the schema for
+monadic operations `return` and `>>=`).**
 
 ``` {.haskell}
 
-> -- returnG :: a -> G a
-> -- returnG = ?
-
-> -- bindG :: G a -> (a -> G b) -> G b
-> -- bingG m f = ?
+> -- instance Monad ((->) Assignment) where -- (->) Assignment is another way of
+>                                           -- writing our type constructor G!
+> --   return x = ?
+> --   m >>= f  = ?
 
 ```
 
@@ -434,16 +447,9 @@ I won't make you prove that your `returnG` and `bindG` operations satisfy the
 Monad Laws, but I very much encourage you to check. It's actually more
 straightforward to do so for `G` than for `[]` or `List`.
 
-Now, as it happens, this extra work was unnecessary: Haskell already defines a
-`Monad` instance for assignment-dependence! (Strictly speaking, however, the
-monad is for *anything*-dependence!) That means that `return`, `>>=`, and `do`
-notation are already available to you, and you're free to use them to write
-programs incorporating things that depend on assignments for their value. (If
-you wanted to insist on defining your own `Monad` instance, you actually need
-to go about it in a somewhat roundabout way, to avoid stepping on the
-pre-defined `Monad` instance's toes. If you're hungry for your own custom
-assignment-dependence `Monad` instance, you can modify the definitions
-[here](https://wiki.haskell.org/All_About_Monads#Definition_7).)
+Now that you have a `Monad` instance, `return`, `>>=`, and `do` notation are
+available to you, and you're free to use them to write programs incorporating
+things that depend on assignments for their value.
 
 **Exercise: use `do` notation to derive a meaning for *she_X dies*, and then
 use that meaning to derive a meaning for *if she_X dies I'll inherit a house*
