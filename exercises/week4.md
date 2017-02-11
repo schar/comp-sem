@@ -88,7 +88,7 @@ also satisfy the monad laws?
 
 They do, which I prove below. The first two proofs are fairly straightforward.
 The proof of Associativity is considerably more involved, but you're encouraged
-to walk through it and appreciate at much as you can.
+to walk through it and appreciate as much as you can.
 
 ``` {.haskell}
 
@@ -120,21 +120,22 @@ m >>= (\x -> f x >>= g) == concat (map (\x -> f x >>= g) m)           (defn. of 
 
 The Monad Laws are essentially a way of guaranteeing three things:
 
--   `return` really is a **trivial** injection of something with type `a` into
-    something with type `[a]` (or `T a`, more generally). In other words, for
-    any `x`, `return x` is the most boring possible way to make `x` fancy.
+-   `return` should actually be a **trivial** injection of something with type
+    `a` into something with type `[a]` (or `T a`, more generally). In other
+    words, for any `x`, `return x` is the most boring possible way to make `x`
+    fancy.
 
--   `>>=` is a **correct** operation for composing its left argument `m` with
-    its right argument `f`. For example, `>>=` shouldn't wantonly add or delete
-    information from `m` or `f`.
+-   `>>=` is a **reasonable** operation for composing its left argument `m`
+    with its right argument `f`. For example, `>>=` shouldn't wantonly add or
+    delete information from `m` or `f`.
 
 -   `>>=` is **associative**! The way that sub-computations are grouped
     together grouped shouldn't affect the overall value of the main
     computation.
 
 **Exercise: define a `pseudoReturn` operation which fails at least one of the
-Monad Laws (using the official `>>=` from above). Below your answer, show what
-goes wrong with at least one Monad Law.**
+Monad Laws (using the official `>>=` from above). Below your answer (outside
+the bird-tracks), show what goes wrong with at least one Monad Law.**
 
 ``` {.haskell}
 
@@ -145,9 +146,9 @@ goes wrong with at least one Monad Law.**
 
 Remember to un-comment these lines. You can test your solution by playing
 around in GHCi: e.g., by checking `pseudoReturn 1 >>= \x -> [x]`. You might
-wonder... How can GHCi know how `>>=` is supposed to be interpreted? We
-haven't defined it anywhere in this file (notice that the above 'definition'
-wasn't bird-tracked)! We'll get to that shortly.
+wonder... How can GHCi know how `>>=` is supposed to be interpreted? We haven't
+defined it anywhere in this file (the above 'definition' actually wasn't
+bird-tracked, so GHCi ignored it completely)! We'll get to that shortly.
 
 **Exercise: define a `pseudoBind` operation which fails at least one of the
 Monad Laws (using the official `return` from above). Below your answer, show
@@ -364,10 +365,10 @@ Now that you have a `Monad` instance for `List` in hand, you can use `return`,
 free to exploit `fmap`, `pure`, and `<*>`)!
 
 **Exercise: give `do` notation-style derivations for *a relative of mine dies*
-and *if a relative of mine dies I'll inherit a house*. Again, for the latter
-two, make sure you don't scope anything out of the island. I've provided a
-`List`-y definition for *a relative* to get you started. Use GHCi to check that
-the results are as expected.**
+and *if a relative of mine dies I'll inherit a house*, using `List` rather than
+`[]`. Again, for the conditional, make sure you don't scope anything out of the
+island. I've provided a `List`-y definition for *a relative* to get you
+started. Use GHCi to check that the results are as expected.**
 
 ``` {.haskell}
 
@@ -438,13 +439,13 @@ assignment-dependent? And: given an assignment-dependent `a` and a function
 from `a`'s to assignment-dependent `b`'s, how can I make an
 assignment-dependent `b`? **Use the types to guide you!**)
 
-I won't make you prove that your `returnG` and `bindG` operations satisfy the
-Monad Laws, but I very much encourage you to check. It's actually more
-straightforward to do so for `G` than for `[]` or `List`.
+I won't make you prove that your answeres here satisfy the Monad Laws, but I
+very much encourage you to check. It's actually way more straightforward to do
+so for `G` than for `[]` or `List`.
 
-Now that you have a `Monad` instance, `return`, `>>=`, and `do` notation are
-available to you, and you're free to use them to write programs incorporating
-things that depend on assignments for their value.
+Well! Now that you have a `Monad` instance for `G`... `return`, `>>=`, and `do`
+notation are available to you, and you're free to use them to write programs
+incorporating things that depend on assignments for their value!
 
 **Exercise: use `do` notation to derive a meaning for *she_X dies*, and then
 use that meaning to derive a meaning for *if she_X dies I'll inherit a house*
