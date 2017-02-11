@@ -439,7 +439,7 @@ assignment-dependent? And: given an assignment-dependent `a` and a function
 from `a`'s to assignment-dependent `b`'s, how can I make an
 assignment-dependent `b`? **Use the types to guide you!**)
 
-I won't make you prove that your answeres here satisfy the Monad Laws, but I
+I won't make you prove that your answers here satisfy the Monad Laws, but I
 very much encourage you to check. It's actually way more straightforward to do
 so for `G` than for `[]` or `List`.
 
