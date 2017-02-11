@@ -1,3 +1,31 @@
+# Computational semantics seminar
+
+## Overview
+
+Welcome to the website for the Spring 2017 Seminar in Semantics!
+
+This semester, we're taking a look at how natural language semanticists can
+exploit tools developed by computer scientists to structure semantic theory,
+and possibly develop more principled semantic architectures, with improved
+empirical coverage in various domains.
+
+We'll see how *monads* (along with the related concepts of *functors* and
+*applicatives*), *continuations*, and *type theory* can be used to ground and
+enrich theories of indefinites (and indefiniteness), binding, quantification
+and scope, dynamics, focus, presupposition, supplementation, and (one hopes!)
+their interactions.
+
+The coursework involves weekly readings, short weekly-ish problem sets (to
+help you consolidate understanding of new technical concepts), and a short term
+paper (10-15 pages), due at the conclusion of the class. I'll be in touch with
+enrolled students after Spring Break about paper topics.
+
+## Course materials
+
+Course materials (including readings, slides, and exercises) can be downloaded
+by following the links below. You'll need a password to access some of the
+readings, which I'll supply to you via email.
+
 |                      | Topic                           | Reading                                                              | Slides                                                                 | Exercises                                                                |
 |----------------------|---------------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------|--------------------------------------------------------------------------|
 | **Week 1** (Jan 18)  | Meaning as computation?         | --                                                                   | [here](https://github.com/schar/comp-sem/blob/master/slides/week1.pdf) | [here](https://github.com/schar/comp-sem/blob/master/exercises/week1.md) |
