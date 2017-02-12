@@ -249,11 +249,11 @@ results are as expected.**
 
 ```
 
-**Important note**: if GHCi complains `parse error on input`, make sure that,
-when un-commenting lines, you delete `--␣`, not just `--`. In other words, you
-need to get rid of the space after `--` too. So the following is ok, but
-placing any more spaces between the bird-tracks and `blahBlah` would lead to a
-horrible error. Sad!
+**Important note**: if GHCi complains `parse error on input`, you should make
+sure that, when un-commenting lines, you're deleting `--␣`, not just `--`. In
+other words, you need to get rid of the space after `--` too. So the following
+is ok, but placing any more spaces between the bird-tracks and `blahBlah` would
+lead to a horrible error. Sad!
 
 ``` {.haskell}
 
