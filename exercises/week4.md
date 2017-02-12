@@ -225,12 +225,11 @@ scoping ('QRing') things all over the place, just like linguists do!
 
 **Exercise: re-express your [Week
 3](https://github.com/schar/comp-sem/blob/master/exercises/week3.md)
-computations for *a relative dies*, *if a relative dies I'll inherit a house*,
-and *closure (if a relative dies I'll inherit a house)*, using `do` notation
-(again, `ifThen`, `dies`, `house`, and `closure` are all defined for you
-below). For the latter two, make sure you don't scope anything out of the
-island -- i.e., use `aRelativeDies`, the meaning of the island, to define
-`ifRelDiesHouse` and `ifRelDiesHouseClosed`. Using GHCi, check that your
+computations for `aRelativeDies`, `ifRelDiesHouse`, and `ifRelDiesHouseClosed`,
+using `do` notation (again, `ifThen`, `dies`, `house`, and `closure` are all
+defined for you below). For the latter two, make sure you don't scope anything
+out of the island -- i.e., use `aRelativeDies`, the meaning of the island, to
+define `ifRelDiesHouse` and `ifRelDiesHouseClosed`. Using GHCi, check that your
 results are as expected.**
 
 ``` {.haskell}
@@ -296,10 +295,10 @@ use `return`, `>>=`, and `do` notation. GHCi will **automatically** infer,
 The `Monad` instance declaration for `[]` given here is what grounds my use of
 `return`, `>>=`, and `do` notation previously (so the `Monad` instance
 declaration can happen anywhere in your file; in particular, it doesn't need to
-precede any monadic computations that rely on it). In practice, GHCi actually
+precede any monadic computations that rely on it). By default, GHCi actually
 loads a bunch of monads for you out of the box -- the mysterious few lines at
 the top of this file are there to suppress this default behavior, for your
-benefit `;p`.)
+benefit `;p`.
 
 It's important to keep in mind that GHCi **will not check** that your
 definitions for `return` and `>>=` satisfy the monad laws (in fact, in
