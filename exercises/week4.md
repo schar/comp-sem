@@ -130,8 +130,7 @@ The Monad Laws are essentially a way of guaranteeing three things:
     delete information from `m` or `f`.
 
 -   `>>=` is **associative**! The way that sub-computations are grouped
-    together grouped shouldn't affect the overall value of the main
-    computation.
+    together shouldn't affect the overall value of the main computation.
 
 **Exercise: define a `pseudoReturn` operation which fails at least one of the
 Monad Laws (using the official `>>=` from above). Below your answer (outside
