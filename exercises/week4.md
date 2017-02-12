@@ -145,10 +145,12 @@ the bird-tracks), show what goes wrong with at least one Monad Law.**
 ```
 
 Remember to un-comment these lines. You can test your solution by playing
-around in GHCi: e.g., by checking `pseudoReturn 1 >>= \x -> [x]`. You might
-wonder... How can GHCi know how `>>=` is supposed to be interpreted? We haven't
-defined it anywhere in this file (the above 'definition' actually wasn't
-bird-tracked, so GHCi ignored it completely)! We'll get to that shortly.
+around in GHCi: e.g., by checking `pseudoReturn 1 >>= \x -> [x]`.
+
+At this point, you might be wondering... How can GHCi know how `>>=` is
+supposed to be interpreted? We haven't defined it anywhere in this file (notice
+that the above 'definition' actually wasn't bird-tracked, so GHCi ignored it
+completely)! We'll get to that shortly.
 
 **Exercise: define a `pseudoBind` operation which fails at least one of the
 Monad Laws (using the official `return` from above). Below your answer, show
@@ -248,11 +250,11 @@ results are as expected.**
 
 ```
 
-**Important note**: if GHCi complains `parse error on input`, make sure that
-you have deleted `--␣`, not just `--`. In other words, when un-commenting a
-line, you need to get rid of the space after `--` too. So the following is ok,
-but placing any more spaces between the bird-tracks and `blahBlah` would lead
-to a horrible error. Sad!
+**Important note**: if GHCi complains `parse error on input`, make sure that,
+when un-commenting lines, you delete `--␣`, not just `--`. In other words, you
+need to get rid of the space after `--` too. So the following is ok, but
+placing any more spaces between the bird-tracks and `blahBlah` would lead to a
+horrible error. Sad!
 
 ``` {.haskell}
 
@@ -269,12 +271,16 @@ As hinted at above, GHCi is somehow able to infer that it should understand the
 occurrences of `>>=` and `return` in programs like `[1,2] >>= \x -> return
 (x+1)` (quick: without looking, what should the result here be?) as performing
 the corresponding `[]`-monad operations (and similarly for the corresponding
-programs written in `do` notation)! How does that work?
+programs written in `do` notation)!
+
+How does that work? There's many, many different monads, with many different
+`return` and `>>=` operations. How did GHCi know which monad, and which
+`return` and `>>=` operations to use?
 
 Technically, this happens via something called the `Monad` **typeclass**.
-Essentially, you declare that a given type constructor is a `Monad`, and
-justify your declaration by providing corresponding definitions for `return`
-and `>>=` like so:
+Basically, you declare that a given type constructor is a `Monad`, and justify
+your declaration by providing corresponding definitions for `return` and `>>=`
+like so:
 
 ``` {.haskell}
 
@@ -286,18 +292,22 @@ and `>>=` like so:
 
 Once you have a `Monad` instance for a type constructor in hand, you're free to
 use `return`, `>>=`, and `do` notation. GHCi will **automatically** infer,
-based on the types, which specific monadic operations it needs to invoke. (So
-the definition immediately above grounds my use of `return`, `>>=`, and `do`
-notation previously. In practice, GHCi actually loads a bunch of monads for you
-out of the box -- the mysterious few lines at the top of this file are there to
-suppress this default behavior, for your benefit ;p.)
+**based on the types**, which specific monadic operations it needs to invoke.
+
+The `Monad` instance declaration for `[]` given here is what grounds my use of
+`return`, `>>=`, and `do` notation previously (so the `Monad` instance
+declaration can happen anywhere in your file; in particular, it doesn't need to
+precede any monadic computations that rely on it). In practice, GHCi actually
+loads a bunch of monads for you out of the box -- the mysterious few lines at
+the top of this file are there to suppress this default behavior, for your
+benefit `;p`.)
 
 It's important to keep in mind that GHCi **will not check** that your
 definitions for `return` and `>>=` satisfy the monad laws (in fact, in
 principle, GHCi [*cannot* check
-this](https://en.wikipedia.org/wiki/Halting_problem)). Thus, GHCi will only
-check that your `return` and `>>=` functions have the correct types. Checking
-that they satisfy the monad laws is the programmer's responsibility.
+this](https://en.wikipedia.org/wiki/Halting_problem)). GHCi will *only* check
+that your `return` and `>>=` functions have the correct types. Checking that
+they satisfy the monad laws is your responsibility.
 
 **Exercise: recalling our data type for `List` (repeated below), define a
 `Monad` instance for it. (Hint: your definition will be a direct translation of
@@ -360,6 +370,9 @@ does `pure` look like to you?)
 
 ```
 
+(I didn't need to do this for `[]` because GHCi already loads the relevant
+`Functor` and `Applicative` instance for it.)
+
 Now that you have a `Monad` instance for `List` in hand, you can use `return`,
 `>>=`, and `do` notation to your heart's content (and, if you wish, you're also
 free to exploit `fmap`, `pure`, and `<*>`)!
@@ -384,6 +397,10 @@ started. Use GHCi to check that the results are as expected.**
 > --   ?
 
 ```
+
+If you're feeling ambitious, you might see if you can define a `List`-y version
+of the `closure` function given at the end of this file, and use it to give a
+derivation for `ifRelDiesHouseClosedList`.
 
 A monad for assignment-sensitivity
 ----------------------------------
@@ -441,7 +458,7 @@ assignment-dependent `b`? **Use the types to guide you!**)
 
 I won't make you prove that your answers here satisfy the Monad Laws, but I
 very much encourage you to check. It's actually way more straightforward to do
-so for `G` than for `[]` or `List`.
+so for `G` than for `[]` (or, for that matter, `List`).
 
 Well! Now that you have a `Monad` instance for `G`... `return`, `>>=`, and `do`
 notation are available to you, and you're free to use them to write programs
