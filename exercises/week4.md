@@ -167,7 +167,7 @@ what goes wrong with at least one Monad Law.**
 ![LOL](https://media.giphy.com/media/3otPoAJCxWNooo97xK/giphy.gif)
 
 Introducing `do` notation
------------------------
+-------------------------
 
 One of the most beautiful things about Haskell (among many) is that makes
 monads super easy to work with. In particular, Haskell defines some special
