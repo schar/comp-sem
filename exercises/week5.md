@@ -375,10 +375,10 @@ use list comprehensions!):
 ``` {.haskell}
 
 > fmap1 :: (a -> b) -> G [a] -> G [b]
-> fmap1 f m = \g -> [f x | x <- m g]
+> fmap1 f m = undefined
 
 > fmap2 :: (a -> b) -> [G a] -> [G b]
-> fmap2 f m = [\g -> f (x g) | x <- m]
+> fmap2 f m = undefined
 
 ```
 
@@ -394,10 +394,10 @@ following definitions (list comprehensions will ease the pain):
 ``` {.haskell}
 
 > app1 :: G [a -> b] -> G [a] -> G [b]
-> ff `app1` xx = \g -> [f x | f <- ff g, x <- xx g]
+> ff `app1` xx = undefined
 
 > app2 :: [G (a -> b)] -> [G a] -> [G b]
-> ff `app2` xx = [\g -> f g (x g) | f <- ff, x <- xx]
+> ff `app2` xx = undefined
 
 ```
 
@@ -462,10 +462,10 @@ syntax than we've seen so far):
 ``` {.haskell}
 
 > returnGL :: a -> G [a]
-> returnGL x = \g -> [x]
+> returnGL x = undefined
 
 > bindGL :: G [a] -> (a -> G [b]) -> G [b]
-> m `bindGL` f = \g -> concat [f x g | x <- m g]
+> m `bindGL` f = undefined
 
 ```
 
