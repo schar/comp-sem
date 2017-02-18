@@ -149,16 +149,18 @@ meanings for sentences like `she_X visits she_Y` (alas, it would be very
 annoying to define accusative-case versions of all our pronouns, so we must
 live with the infelicity here).
 
-**Exercise.** Give two derivations of *she_X visits a relative*, corresponding
-to the two different ways of layering lists and assignment-sensitivity.
+**Exercise.** Give two derivations of *she_Y visits a relative*, corresponding
+to the two different ways of layering lists and assignment-sensitivity. (As
+with the higher-order derivations above, these derivations will require you to
+embed one `do` block inside another.)
 
 ``` {.haskell}
 
-> sheXVisitsARelative1 :: G [T]
-> sheXVisitsARelative1 = undefined
+> sheYVisitsARelative1 :: G [T]
+> sheYVisitsARelative1 = undefined
 
-> sheXVisitsARelative2 :: [G T]
-> sheXVisitsARelative2 = undefined
+> sheYVisitsARelative2 :: [G T]
+> sheYVisitsARelative2 = undefined
 
 ```
 
