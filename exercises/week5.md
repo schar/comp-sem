@@ -31,7 +31,7 @@ saving the file). Then follow these steps:
 Practice: higher-order meanings
 -------------------------------
 
-As a reminder, `do` notation works like follows:
+As a reminder, `do` notation works as follows:
 
 ``` {.haskell}
 
