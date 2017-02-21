@@ -165,7 +165,7 @@ embed one `do` block inside another.)
 ```
 
 Using `closure` and `eval`, can you figure out a way to turn your results here
-into things of type `T`? For `sheXVisitsARelative2`, you may find list
+into things of type `T`? For `sheYVisitsARelative2`, you may find list
 comprehensions helpful.
 
 Adding binding
