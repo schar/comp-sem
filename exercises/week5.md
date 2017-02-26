@@ -332,7 +332,7 @@ block as 'unwrapping' `m` to get at the value inside of it.)
 ``` {.haskell}
 
 > instance Monad m => Functor m where
->   fmap f m = undefined
+>   fmap f m = undefined 
 
 > instance Monad m => Applicative m where
 >   pure = return -- I did this one for you :)
