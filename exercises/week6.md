@@ -124,7 +124,7 @@ The monad instance here just does the usual monadic operations associated with
 `[]`, while peeling off and adding in `L` in the appropriate places, so that
 everything types out (remember that `return` must have type `a -> L a`, and
 `>>=` must have type `L a -> (a -> L b) -> L b`). The occurrences of `.` in
-the definitions stands for **function composition**:
+the definitions stand for **function composition**:
 
 ``` {.haskell}
 
@@ -186,21 +186,23 @@ need to replace 4 instances of `undefined` below with your own definitions
 
 ``` {.haskell}
 
-> returnGL :: a -> GL a
-> returnGL x = undefined
+> returnGL :: a -> GL a     -- remember: type GL a = Assignment -> [a]
+> returnGL x = undefined    -- from week 5
 
-> infixl 1 `bindGL` -- you may ignore this
+> infixl 1 `bindGL`         -- you may ignore this
 
 > bindGL :: GL a -> (a -> GL b) -> GL b
-> m `bindGL` f = undefined
+> m `bindGL` f = undefined  -- from week 5
 
-> newtype GLM a = GLM { unGLM :: GL a }
+> newtype GLM a = GLM { unGLM :: GL a } -- our newtype wrapper
+>                                       -- GLM :: GL a -> GLM a
+>                                       -- unGLM :: GLM a -> GL a
 
 > instance Monad GLM where
->   return = undefined
->   GLM m >>= f = undefined
+>   return = undefined        -- fill this in
+>   GLM m >>= f = undefined   -- and this
 
-> -- the rest is just boilerplate
+> -- the rest is just the usual boilerplate
 
 > instance Applicative GLM where
 >   pure = return
@@ -210,6 +212,11 @@ need to replace 4 instances of `undefined` below with your own definitions
 >   fmap f m = pure f <*> m
 
 ```
+
+Wonderful! Now you have a `GLM` monad, which handles both
+assignment-sensitivity and alternatives. And now you can use `do` notation to
+concisely express monadic computations for things with pronouns, indefinites,
+and mixtures thereof!
 
 **Exercise.** Use your `Monad` instance for `GLM` to derive a meaning for
 *she_V met a lawyer*, using the provided definitions for `sheVGLM` and
@@ -375,7 +382,8 @@ alternatives, we must define a `newtype` to get things done:
 
 ``` {.haskell}
 
-> data DM a = DM { unDM :: D a }
+> data DM a = DM { unDM :: D a }  -- DM :: D a -> DM a
+>                                 -- unDM :: DM a -> D a
 
 ```
 
