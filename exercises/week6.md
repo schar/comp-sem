@@ -107,7 +107,7 @@ remove this tag.
 
 This tagging dance seems pretty trivial, but it crucially allows us to
 hand-roll our own `Monad` instances, even for cases where GHCi thinks it knows
-better. Thus, for example, we can define a `Monad` instand for `L`-lists, as
+better. Thus, for example, we can define a `Monad` instance for `L`-lists, as
 follows:
 
 ``` {.haskell}
