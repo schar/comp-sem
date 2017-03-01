@@ -219,7 +219,7 @@ concisely express monadic computations for things with pronouns, indefinites,
 and mixtures thereof!
 
 **Exercise.** Use your `Monad` instance for `GLM` to derive a meaning for
-*she_V met a lawyer*, using the provided definitions for `sheVGLM` and
+*she_V visits a lawyer*, using the provided definitions for `sheVGLM` and
 `aLawyerGLM` and `do` notation (`aLawyer` is just `[cat, dan]`, defined at the
 end of this file).
 
@@ -231,8 +231,8 @@ end of this file).
 > aLawyerGLM :: GLM E
 > aLawyerGLM = GLM (\g -> aLawyer)
 
-> sheVMetALawyer :: GLM T
-> sheVMetALawyer = undefined
+> sheVVisitsALawyer :: GLM T
+> sheVVisitsALawyer = undefined
 
 ```
 
