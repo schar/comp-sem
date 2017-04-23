@@ -15,7 +15,7 @@ enrich theories of indefinites (and indefiniteness), binding, quantification
 and scope, dynamics, focus, presupposition, supplementation, and (one hopes!)
 their interactions.
 
-The coursework involves weekly readings, short weekly-ish problem sets (to
+The coursework involves weekly readings, short weekly-ish problem sets at the outset (to
 help you consolidate understanding of new technical concepts), and a short term
 paper (10-15 pages), due at the conclusion of the class. I'll be in touch with
 enrolled students after Spring Break about paper topics.
